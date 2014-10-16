@@ -6,13 +6,13 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+  2.1.3
 * System dependencies
-
+  Plot as vet si di
 * Configuration
 
 * Database creation
-
+  Databaza ka me kon me postgree
 * Database initialization
 
 * How to run the test suite
