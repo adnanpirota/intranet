@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
+gem 'minitest-rails'
 # Use postgresql as the database for Active Record
 gem 'bootstrap-sass',   '3.2.0.0'
 # Use SCSS for stylesheets
@@ -26,7 +27,6 @@ gem 'sdoc',           '0.4.0', group: :doc
 gem 'sqlite3',        '1.3.9'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development, :test do
-  
   gem 'byebug',       '3.4.0'
   gem 'web-console',  '2.0.0.beta3'
   gem 'spring',       '1.1.3'
