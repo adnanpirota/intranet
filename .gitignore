@@ -27,6 +27,8 @@ doc/
 .DS_Store
 .idea
 .secret
+Gemfile.lock
+
 
 .c9/metadata/tab2
 .c9/metadata/*
