@@ -1,3 +1,24 @@
-<% provide(:title, 'Regjistrohu') %>
-<h1>Regjistrohu</h1>
-<p>Permes kesaj faqe do te regjistrohen punetoret e rinj</p>
+<% provide(:title, 'Regjistro punetore') %>
+<h1>Regjistro punetore te ri</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
+      <%= f.label :emri %>
+      <%= f.text_field :emri %>
+      
+      <%= f.label :emaili %>
+      <%= f.text_field :emaili %>
+      
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      
+      <%= f.label :password_confirmation, "Konfirmo passwordin" %>
+      <%= f.password_field :password_confirmation %>
+      
+      <%= f.submit "Regjistro punetorin", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
