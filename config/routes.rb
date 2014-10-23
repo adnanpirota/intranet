@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users
   
   # Komenti qe e kom shtu kur e kom fshi gabimisht routes.rb prej serverit
+  # Komenti mbas komentit
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
