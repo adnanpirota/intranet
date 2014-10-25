@@ -3,3 +3,6 @@
 .c9/
 tmp/
 /tmp/
+/log/development.log
+log/development.log
+

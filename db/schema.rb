@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021123400) do
+ActiveRecord::Schema.define(version: 20141024144229) do
 
   create_table "users", force: true do |t|
     t.string   "emri"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141021123400) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
   add_index "users", ["emaili"], name: "index_users_on_emaili", unique: true
