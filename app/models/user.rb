@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :emaili, presence: true, length: { maximum: 255}, uniqueness: {case_sensitive: false }
 
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, allow_blank: true
   
   #def initialize
     #@emri = 'Adnan Pirota'

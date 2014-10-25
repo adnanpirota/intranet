@@ -1,0 +1,29 @@
+<% provide(:title, "Perditsoje profilin") %>
+<h1>Perditsoje profilin</h1>
+
+<div class="row" >
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+      
+      <%= f.label :emri %>
+      <%= f.text_field :emri, class: 'form-control' %>
+      
+      <%= f.label :emaili %>
+      <%= f.text_field :emaili, class: 'form-control' %>
+      
+      <%= f.label :password, "Fjalekalimi" %>
+      <%= f.password_field :password, class: 'form-control' %>
+      
+      <%= f.label :password_confirmation, "Konfiro fjalekalimin" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      
+      <%= f.submit "Ruaj ndryshimet", class: "btn btn-primary" %>
+    <% end %>
+    
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails">change</a>
+    </div>
+  </div>
+</div>
