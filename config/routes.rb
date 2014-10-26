@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
 
+  get 'account_activations/edit'
+
   get 'sessions/new'
 
   root 'static_pages#home'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
   
   # Komenti qe e kom shtu kur e kom fshi gabimisht routes.rb prej serverit
   # Komenti mbas komentit

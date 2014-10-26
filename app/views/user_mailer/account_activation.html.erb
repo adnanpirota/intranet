@@ -1,0 +1,9 @@
+<h1>Intraneti</h1>
+
+<p>Pershendetje <%= @user.emri %></p>
+
+<p>
+  Mire se vjen ne Intranet! Kliko lidhjen me poshte per ta aktivizuar llogarine tuaj:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activity_token, emaili: @user.emaili) %>

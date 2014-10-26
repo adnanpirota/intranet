@@ -9,7 +9,9 @@ User.create!(emri: "Adnan Pirota",
              emaili: "adnan.pirota@devollicorporation.com",
             password: "MY4zrg22",
             password_confirmation: "MY4zrg22",
-            admin: true)
+            admin: true,
+            activated: true,
+            activated_at: Time.zone.now)
             
 99.times do |n|
   name = Faker::Name.name
@@ -18,5 +20,7 @@ User.create!(emri: "Adnan Pirota",
   User.create!(emri: name,
               emaili: email, 
               password:               password,
-              password_confirmation:  password)
+              password_confirmation:  password,
+              activated: true,
+              activated_at: Time.zone.now)
 end

@@ -1,0 +1,6 @@
+Pershendetje <%= @user.emri %>
+
+Mire se vjen ne Intranet! Kliko lidhjen me poshte per ta aktivizuar llogarine tuaj:
+
+
+<%= edit_account_activation_url(@user.activity_token, emaili: @user.emaili) %>
