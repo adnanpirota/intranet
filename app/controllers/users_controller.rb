@@ -13,6 +13,15 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])  
+    logger.debug "This is from debug"
+    logger.debug "Useri osht #{@user.emri}"
+    @leaves2 = Leave.all
+    logger.debug "Numbri i leavesave osht#{@leaves2.count}"
+    @leaves2.each do 
+      logger.debug "Prej mrenda leaves2.each #{@leaves2.inspect}"
+    end
+    @leaves = @user.leaves.paginate(page: params[:page])
+    logger.debug "Numri i leavesave per ket user osht: #{@leaves.count}" 
   end
   
   def create

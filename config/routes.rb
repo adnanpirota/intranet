@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get 'login'     => 'sessions#new'
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users
+  resources :users do
+    resources :leaves
+  end 
+  
   resources :account_activations, only: [:edit]
   
   # Komenti qe e kom shtu kur e kom fshi gabimisht routes.rb prej serverit

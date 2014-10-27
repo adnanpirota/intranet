@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 gem 'bcrypt', '3.1.7'
 gem 'faker',  '1.4.2'
+#gem 'factory_girl_rails'
 gem 'will_paginate',    '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 # Use postgresql as the database for Active Record

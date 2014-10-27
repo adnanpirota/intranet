@@ -8,4 +8,13 @@
       </h1>      
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.leaves.any? %>
+    <h3>(<%= @user.leaves.count %>) pushime</h3>
+    <ol class="leaves">
+      <%= render @leaves %>
+    </ol>
+    <%= will_paginate @leaves %>
+    <% end %>
+  </div>
 </div>
