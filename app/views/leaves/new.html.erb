@@ -1,0 +1,29 @@
+<% provide(:title,"Krijo pushim") %>
+<div class="row">
+  <% if logged_in? %>
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+      <%= render 'shared/pending_info' %>
+      </section>
+    </aside>
+  
+  <% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+  <% end %>
+  <div class="center jumbotron">
+  <div class="col-md-8">
+    <%= form_for(@leave) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+        <div class="field">
+          <%= f.text_area :arsyetimi, placeholder: "Krijo pushim te ri ... " %>
+          <%= f.date_field :dita_pare, placeholder: "Dita e pare e pushimit ..." %>
+          <%= f.date_field :dalja_ne_pune, placeholder: "Dalja ne pune ..." %>
+        </div>
+      <%= f.submit "Krijo pushimin", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+</div>

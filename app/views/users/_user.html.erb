@@ -1,4 +1,4 @@
 <li>
-  <%= gravatar_for user %>
+  <%= image_tag user.picture.url if user.picture? %>
   <%= link_to user.emri, user %>
 </li>

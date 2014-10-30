@@ -11,16 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026201348) do
+ActiveRecord::Schema.define(version: 20141029143517) do
 
   create_table "leaves", force: true do |t|
     t.string   "arsyetimi"
     t.integer  "user_id"
-    t.datetime "dita_pare"
-    t.datetime "dita_fundit"
-    t.decimal  "totali_diteve"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.date     "dita_pare"
+    t.date     "dalja_ne_pune"
   end
 
   add_index "leaves", ["user_id", "created_at"], name: "index_leaves_on_user_id_and_created_at"
@@ -37,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141026201348) do
     t.string   "activation_digest"
     t.boolean  "activated"
     t.datetime "activated_at"
+    t.string   "picture"
   end
 
   add_index "users", ["emaili"], name: "index_users_on_emaili", unique: true

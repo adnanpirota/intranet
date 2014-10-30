@@ -1,0 +1,6 @@
+<% if @leaves.any? %>
+  <ol class="leaves">
+    <%= render @leaves %>    
+  </ol>
+  <%= will_paginate @leaves %>
+<% end %>

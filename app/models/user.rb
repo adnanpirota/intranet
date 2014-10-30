@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
   #before_create :create_activation_digest
   validates :emri, presence: true, length: { maximum: 50 }
   validates :emaili, presence: true, length: { maximum: 255}, uniqueness: {case_sensitive: false }
-
+  mount_uploader :picture, PictureUploader  
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
+  validate :picture_size
   
   #def initialize
     #@emri = 'Adnan Pirota'
@@ -22,6 +23,12 @@ class User < ActiveRecord::Base
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     
     BCrypt::Password.create(string, cost: cost)
+  end
+  
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Leave.where("user_id = ?", id)
+    
   end
   
   #Returns a random token.
@@ -61,6 +68,13 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+    
+    # Validates the size of the picture
+    def picture_size
+      if picture.size > 1.megabytes
+        errors.add(:picture, "duhet te jete me e vogel se 1MB")
+      end
     end
 
 

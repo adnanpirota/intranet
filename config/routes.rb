@@ -14,9 +14,14 @@ Rails.application.routes.draw do
   get 'login'     => 'sessions#new'
   post 'login'    => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  resources :users do
-    resources :leaves
-  end 
+  
+  get 'leaves' => 'leaves#index'
+  get 'leaves/new' => 'leaves#new'
+  resources :users 
+  resources :leaves, only: [:create, :destroy]
+  
+  
+   
   
   resources :account_activations, only: [:edit]
   

@@ -3,7 +3,7 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
+        <%= image_tag @user.picture_url if @user.picture? %>
         <%= @user.emri %>
       </h1>      
     </section>
@@ -12,7 +12,7 @@
     <% if @user.leaves.any? %>
     <h3>(<%= @user.leaves.count %>) pushime</h3>
     <ol class="leaves">
-      <%= render @leaves %>
+      <%=  render @leaves %>
     </ol>
     <%= will_paginate @leaves %>
     <% end %>
