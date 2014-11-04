@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :leaves
+  has_many :leaves, dependent: :destroy
+  has_many :updates, class_name: "Update",
+                     foreign_key: "user_id",
+                    dependent: :destroy
+                    
+  has_many :updates, through: :updates, source: :user
   
   #attr_accessor :remember_token, :activation_token
   before_save :downcase_email
@@ -29,6 +34,11 @@ class User < ActiveRecord::Base
     # This is preliminary. See "Following users" for the full implementation.
     Leave.where("user_id = ?", id)
     
+  end
+  
+  # Follows a contract
+  def follow(contract_comment)
+    updates.create(contract_comment: contract_comment)
   end
   
   #Returns a random token.

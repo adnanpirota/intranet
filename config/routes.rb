@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   
 
+  get 'contracts/index'
+
+  get 'contracts/new'
+
+  get 'contracts/edit'
+
   get 'account_activations/edit'
 
   get 'sessions/new'
@@ -20,7 +26,7 @@ Rails.application.routes.draw do
   resources :users 
   resources :leaves, only: [:create, :destroy]
   
-  
+  resources :contracts
    
   
   resources :account_activations, only: [:edit]

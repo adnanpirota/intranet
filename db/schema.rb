@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029143517) do
+ActiveRecord::Schema.define(version: 20141031130444) do
+
+  create_table "contract_comments", force: true do |t|
+    t.integer  "contract_id"
+    t.string   "komenti"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contract_comments", ["contract_id"], name: "index_contract_comments_on_contract_id"
+
+  create_table "contracts", force: true do |t|
+    t.string   "numri_kontrates"
+    t.integer  "sasia"
+    t.decimal  "cmimi"
+    t.integer  "avansi"
+    t.decimal  "pjesa_mbetur_per_pagese"
+    t.date     "koha_arritjes_port"
+    t.date     "koha_reale_arritjes_port"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "leaves", force: true do |t|
     t.string   "arsyetimi"
@@ -24,6 +45,16 @@ ActiveRecord::Schema.define(version: 20141029143517) do
 
   add_index "leaves", ["user_id", "created_at"], name: "index_leaves_on_user_id_and_created_at"
   add_index "leaves", ["user_id"], name: "index_leaves_on_user_id"
+
+  create_table "updates", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "contract_comment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "updates", ["contract_comment_id"], name: "index_updates_on_contract_comment_id"
+  add_index "updates", ["user_id"], name: "index_updates_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "emri"

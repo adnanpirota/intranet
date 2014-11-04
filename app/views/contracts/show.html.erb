@@ -1,0 +1,34 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      
+    </aside>
+    <div class="col-md-8">
+      <h3>Kontrata: <%= @contract.numri_kontrates %> </h3>
+      <table data-toggle="table" >
+        <thead>
+          <tr>
+            <th class="col-sm-2">Numri i kontrates</th>
+            <th class="col-sm-1">Sasia</th>
+            <th class="col-sm-1">Cmimi</th>
+            <th class="col-sm-1">Avansi</th>
+            <th class="col-sm-3">Pjesa e mbetur</th>
+            <th class="col-sm-2">Koha arritjes</th>
+            <th class="col-sm-3">Koha reale e arritjes</th>
+          </tr>
+        </thead>
+        
+        <%= render @contract %>
+      </table>
+     
+    </div>
+  </div>
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>

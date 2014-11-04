@@ -2,10 +2,12 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= image_tag @user.picture_url if @user.picture? %>
-        <%= @user.emri %>
-      </h1>      
+        <span>
+        <%= image_tag @user.picture_url, class: "avatar" if @user.picture? %>
+        </span>
+        <h1>
+          <%= @user.emri %>
+        </h1>      
     </section>
   </aside>
   <div class="col-md-8">
