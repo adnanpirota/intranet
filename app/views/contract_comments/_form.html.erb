@@ -1,0 +1,17 @@
+<%= form_for [@contract, @contract_comment], remote: true, html: { class: "form-horizontal", style: "display:inline;" }  do |f| %>
+  <div class="modal-body">
+    <ul class="errors"></ul>
+    
+    <div class="control-group">
+      <%= f.label :komenti, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :komenti %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Shto Komentin",   class: "btn btn-primary" %>
+    <%= link_to "Anulo", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+<% end %>

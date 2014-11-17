@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031130444) do
+ActiveRecord::Schema.define(version: 20141111212718) do
 
   create_table "contract_comments", force: true do |t|
     t.integer  "contract_id"
     t.string   "komenti"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "ndikues"
+    t.string   "punetori"
   end
 
   add_index "contract_comments", ["contract_id"], name: "index_contract_comments_on_contract_id"
@@ -30,6 +32,25 @@ ActiveRecord::Schema.define(version: 20141031130444) do
     t.decimal  "pjesa_mbetur_per_pagese"
     t.date     "koha_arritjes_port"
     t.date     "koha_reale_arritjes_port"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "supplier_id"
+    t.integer  "item_id"
+    t.boolean  "kompletuar"
+  end
+
+  add_index "contracts", ["item_id"], name: "index_contracts_on_item_id"
+  add_index "contracts", ["supplier_id"], name: "index_contracts_on_supplier_id"
+
+  create_table "departments", force: true do |t|
+    t.string   "departamenti"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "emertimi"
+    t.text     "pershkrimi"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +66,14 @@ ActiveRecord::Schema.define(version: 20141031130444) do
 
   add_index "leaves", ["user_id", "created_at"], name: "index_leaves_on_user_id_and_created_at"
   add_index "leaves", ["user_id"], name: "index_leaves_on_user_id"
+
+  create_table "suppliers", force: true do |t|
+    t.string   "emri"
+    t.string   "telefoni"
+    t.string   "emaili"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "updates", force: true do |t|
     t.integer  "user_id"
@@ -68,8 +97,11 @@ ActiveRecord::Schema.define(version: 20141031130444) do
     t.boolean  "activated"
     t.datetime "activated_at"
     t.string   "picture"
+    t.string   "remember_token"
+    t.integer  "departamenti_id"
   end
 
+  add_index "users", ["departamenti_id"], name: "index_users_on_departamenti_id"
   add_index "users", ["emaili"], name: "index_users_on_emaili", unique: true
 
 end

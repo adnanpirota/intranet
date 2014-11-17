@@ -1,0 +1,32 @@
+<% @contracts.each do |contract| %>
+<tr class="<%= cycle('list_line_odd','list_line_even') %> ">
+  <td class="list_description">
+    <%= link_to contract.numri_kontrates, contract %>
+  </td>
+  <td class="list_description">
+    <%= link_to contract.supplier.emri, contract.supplier %>
+  </td>
+  <td class="list_description">
+    <%= link_to contract.item.emertimi, contract.item %>
+  </td>
+  
+  <td class="sasia">
+    <%= contract.sasia %>
+  </td>
+  <td class="price">
+    <%= number_to_currency(contract.cmimi, unit: '€') %>
+  </td>
+  <td class="price">
+    <%= number_to_currency(contract.avansi, unit: '€')  %>
+  </td>
+  <td class="price">
+    <%= number_to_currency(contract.pjesa_mbetur_per_pagese, unit: '€') %>
+  </td>
+  <td class="list_description">
+    <%= contract.koha_arritjes_port %>
+  </td>
+  <td class="list_description">
+    <%= contract.koha_reale_arritjes_port %>
+  </td>
+</tr>
+<% end %>

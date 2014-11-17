@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
   
   def new
+    @departamentet = Department.all
     @user = User.new
   end
   
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
   private
   
     def user_params
-      params.require(:user).permit(:picture, :emri, :emaili, :password, :password_confirmation)  
+      params.require(:user).permit(:picture, :emri, :emaili, :password, :password_confirmation, :departamenti_id)  
     end
     
     # Confirms a Logged-in user.

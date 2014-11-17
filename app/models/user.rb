@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
                     dependent: :destroy
                     
   has_many :updates, through: :updates, source: :user
-  
+  belongs_to :department
   #attr_accessor :remember_token, :activation_token
   before_save :downcase_email
   #before_create :create_activation_digest
@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
   #end
   
   # Returns the hash digest of the given string.
+  
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+  
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     
@@ -51,9 +56,10 @@ class User < ActiveRecord::Base
   end
   # Rememember a user in the database for use in persistent sessions.
   def remember 
-    #self.remember_token = User.new_token
+    self.remember_token = User.new_token
     #update_attribute(:remember_digest, User.digest(remember_token))
-    self.update_attribute(:remember_digest, new_token)
+    #self.update_attribute(:remember_digest, new_token)
+    self.update_attribute(:remember_digest, User.digest(remember_token))
   end
   
   # Returns true if the given token matches the digest.
@@ -85,6 +91,10 @@ class User < ActiveRecord::Base
       if picture.size > 1.megabytes
         errors.add(:picture, "duhet te jete me e vogel se 1MB")
       end
+    end
+    
+    def create_remember_token
+      self.remember_token = user.digest(User.new_remember_token)
     end
 
 

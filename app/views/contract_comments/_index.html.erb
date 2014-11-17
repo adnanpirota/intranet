@@ -1,0 +1,18 @@
+<% @contract_comments.each do |contract| %>
+<% if contract.ndikues == false %>
+  <tr class="<%= cycle('list_line_odd','list_line_even') %>" style="color: green">
+    <% else %>
+      <tr class="<%= cycle('list_line_odd','list_line_even') %>" style="color: red">
+    <% end %>
+    <td class="list_description">
+    <%= contract.komenti %>
+  </td>
+  <td>
+    <%= contract.created_at %>
+  </td>
+  <td>
+    <%= contract.punetori %>
+  </td>
+  </tr>
+
+<% end %>

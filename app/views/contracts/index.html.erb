@@ -8,11 +8,21 @@
       <section class="pending_info">
         <%= render 'shared/pending_info' %>
       </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
       
     </aside>
     <div class="col-md-8">
       <h3>Kontratat</h3>
-      <table data-toggle="table" >
+      <div class="well">
+        
+          
+          <%= link_to "Kontrate e re", new_contract_path, remote: true, class: "btn btn-primary"%>
+        
+      </div>
+      <div class="kontrate-e-re"></div>
+      <table data-toggle="table" class="table table-bordered" >
         <thead>
           <tr>
             <th class="col-sm-1">Numri i kontrates</th>
@@ -26,10 +36,16 @@
             <th class="col-sm-1">Koha reale e arritjes</th>
           </tr>
         </thead>
-        
-        <%= render @contracts %>
+        <tbody class="contract-index">
+          <%= render "index" %>
+        </tbody>
       </table>
-     
+     <div id="kontrata-modal" class="modal fade">
+       <div class="modal-dialog">
+         <div id="inner-contract-modal" class="modal-content"></div>
+       </div>
+       
+     </div>
     </div>
   </div>
 <% else %>

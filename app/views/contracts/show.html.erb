@@ -7,25 +7,33 @@
       <section class="pending_info">
         <%= render 'shared/pending_info' %>
       </section>
-      
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
     </aside>
     <div class="col-md-8">
+      <%= link_to "Prokurimi - Ballina", contracts_path, class: "krejt-kontratat btn btn-lg btn-primary" %>
       <h3>Kontrata: <%= @contract.numri_kontrates %> </h3>
       <table data-toggle="table" >
         <thead>
           <tr>
-            <th class="col-sm-2">Numri i kontrates</th>
+            <th class="col-sm-1">Numri i kontrates</th>
+            <th class="col-sm-1">Furnitori</th>
+            <th class="col-sm-1">Artikulli</th>
             <th class="col-sm-1">Sasia</th>
             <th class="col-sm-1">Cmimi</th>
             <th class="col-sm-1">Avansi</th>
-            <th class="col-sm-3">Pjesa e mbetur</th>
-            <th class="col-sm-2">Koha arritjes</th>
-            <th class="col-sm-3">Koha reale e arritjes</th>
+            <th class="col-sm-1">Pjesa e mbetur</th>
+            <th class="col-sm-1">Koha arritjes</th>
+            <th class="col-sm-1">Koha reale e arritjes</th>
           </tr>
         </thead>
         
         <%= render @contract %>
       </table>
+      <p></p>
+      <p></p>
+      <h2>Transaksionet dhe detajet</h2>
      
     </div>
   </div>

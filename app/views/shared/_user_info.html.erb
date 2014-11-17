@@ -1,8 +1,7 @@
-        <span>
-        <%= image_tag @user.picture_url, class: "avatar" if @user.picture? %>
-        </span>
-        <h1>
-          <%= @user.emri %>
-        </h1>      
-<span><%= link_to "profili", current_user %></span>
-<span><%= pluralize(current_user.leaves.count, "pushime") %></span>
+<span>
+  <%= image_tag @user.picture_url, class: "avatar" if @user.picture? %>
+</span>
+  <h1>
+    <%= @user.emri %>
+  </h1>      
+

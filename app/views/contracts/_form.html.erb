@@ -1,0 +1,60 @@
+<%= form_for @contract, remote: true, html: { class: "form-horizontal", style: "display:inline;" }  do |f| %>
+
+  <div class="modal-body">
+    <ul class="errors"></ul>
+    
+    <div class="control-group">
+      <%= f.label :numri_kontrates, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :numri_kontrates %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :supplier_id, class: "control-label" %>
+      <div class="controls">
+        <%= f.collection_select :supplier_id, Supplier.order(:emri), :id, :emri, include_blank: true %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :item_id, class: "control-label" %>
+      <div class="controls">
+        <%= f.collection_select :item_id, Item.order(:emertimi), :id, :emertimi, include_blank: true %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :sasia, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :sasia %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :cmimi, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :cmimi %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :avansi, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :avansi %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :pjesa_mbetur_per_pagese, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :pjesa_mbetur_per_pagese %>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit class: "btn btn-primary" %>
+    <%= link_to "Anulo", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+
+<% end %>

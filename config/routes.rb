@@ -23,10 +23,20 @@ Rails.application.routes.draw do
   
   get 'leaves' => 'leaves#index'
   get 'leaves/new' => 'leaves#new'
-  resources :users 
+  resources :users, except: [:delete]
   resources :leaves, only: [:create, :destroy]
   
-  resources :contracts
+  resources :contract_comments
+  
+  resources :contracts, except: [:delete] do
+    resources :contract_comments, :only => [:create, :index, :new]
+  end
+  
+  
+  
+  resources :suppliers, except: [:delete]
+  
+  resources :items, except: [:delete]
    
   
   resources :account_activations, only: [:edit]

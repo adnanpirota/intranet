@@ -1,0 +1,33 @@
+<%= form_for @supplier, remote: true, html: { class: "form-horizontal", style: "display:inline;" }  do |f| %>
+  <div class="modal-body">
+    <ul class="errors"></ul>
+    
+    <div class="control-group">
+      <%= f.label :emri, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :emri %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :telefoni, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :telefoni %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :emaili, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :emaili %>
+      </div>
+    </div>
+    
+    
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Shto furnitorin",   class: "btn btn-primary" %>
+    <%= link_to "Anulo", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+
+<% end %>

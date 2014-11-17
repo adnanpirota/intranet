@@ -19,7 +19,11 @@ html {
 
 body {
   padding-top: 60px;
+  background-color: #F5F5F5;
 }
+
+
+
 
 section {
   overflow: auto;
@@ -84,8 +88,14 @@ p{
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  
+   margin-top: 45px;
+  /* margin-top: -100px;*/
+  /* height: 150px; /* e shtuar per bootstrap footer */
+  /* position: relative; /* e shtuar per bootstrap footer */
+  /* clear: both; /* e shtuar per bootstrap footer */
+  padding-top: 5px; /* origjinali u kon 5 */
+  
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   a {
@@ -141,10 +151,10 @@ aside {
     }
     h1 {
       font-size: 1.4em;
-      text-align: left;
+      text-align: center;
       letter-spacing: -1px;
       margin-bottom: 3px;
-      margin-top: 130px;
+      margin-top: 140px;
       align:center;
       
     }
@@ -162,6 +172,7 @@ aside {
 /* Rounded avatars */
 .avatar {
     float: left;
+    margin-left: 58px;
     margin-top: 1em;
     margin-right: 1em;
     position: relative;
@@ -285,8 +296,34 @@ span.picture {
 
 .col-md-4 {
   width: 20%!important;
+  background-color: #F5F9F9;
 }
 
 .col-md-8 {
   width: 80%!important;
+  
+}
+
+.kontrata_re {
+  max-width: 400px;
+}
+
+.pending_info { 
+  margin-top: 5px;
+  padding-top: 5px;
+  p {
+    margin: 2px 2px 2px 2px;
+  }
+}
+
+.perkujtimet_info {
+  margin-top: 5 px;
+  padding-top: 5px;
+  p {
+    margin: 2px 2px 2px 2px;
+  }
+}
+
+.krejt-kontratat {
+  float: right;
 }

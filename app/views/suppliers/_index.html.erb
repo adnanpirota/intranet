@@ -1,0 +1,14 @@
+<% @suppliers.each do |s| %>
+<tr class="<%= cycle('list_line_odd','list_line_even') %> ">
+  
+  <td class="list_description">
+    <%= link_to s.emri, s %>
+  </td>
+  <td class="list_description">
+    <%= s.telefoni %>
+  </td>
+  <td class="list_description">
+    <%= s.emaili  %>
+  </td>
+</tr>
+<% end %>

@@ -1,0 +1,30 @@
+<%= render 'shared/error_messages', object: f.object %>
+      
+<div class="kontrata_re">
+<%= f.label :numri_kontrates %>
+<%= f.text_field :numri_kontrates %>
+
+<%= f.label :supplier_id %>
+<%= f.number_field :supplier_id %>
+
+<%= f.label :item_id %>
+<%= f.number_field :item_id %>
+      
+<%= f.label :sasia %>
+<%= f.number_field :sasia %>
+      
+<%= f.label :cmimi %>
+<%= f.number_field :cmimi %>
+      
+<%= f.label :avansi %>
+<%= f.number_field :avansi %>
+
+<%= f.label :pjesa_mbetur_per_pagese %>
+<%= f.number_field :pjesa_mbetur_per_pagese %>
+
+<%= f.label :koha_arritjes_port %>
+<%= f.date_field :koha_arritjes_port %>
+
+<%= f.label :koha_reale_arritjes_port %>
+<%= f.date_field :koha_reale_arritjes_port %>
+</div>

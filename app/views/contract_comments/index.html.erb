@@ -1,0 +1,64 @@
+<% provide(:title, "Kontratat") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+      
+    </aside>
+    <div class="col-md-8">
+      <h1>Kontrata</h1>
+      <div class="well">
+        
+          
+          <%= link_to "Shto koment", new_contract_contract_comment_path, remote: true, class: "btn btn-primary"%>
+        
+      </div>
+      <div class="contract-comment-i-ri"></div>
+      <table data-toggle="table" class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col-sm-1">Numri i kontrates</th>
+            <th class="col-sm-1">Furnitori</th>
+            <th class="col-sm-1">Artikulli</th>
+            <th class="col-sm-1">Sasia</th>
+            <th class="col-sm-1">Cmimi</th>
+            <th class="col-sm-1">Avansi</th>
+            <th class="col-sm-1">Pjesa e mbetur</th>
+            <th class="col-sm-1">Koha arritjes</th>
+            <th class="col-sm-1">Koha reale e arritjes</th>
+          </tr>
+        </thead>
+        <%= render @contract %>
+      </table>
+      <h3>Komentet dhe aktivitetet</h3>
+      <table data-toggle="table" class="table table-bordered">
+         <thead>
+          <tr>
+            <th class="col-sm-1">Komenti</th>
+            <th class="col-sm-1">Data</th>
+            <th class="col-sm-1">Komentuesi</th>
+        </tr>
+        </thead>
+        <tbody class="contract-index">
+          <%= render "index" %>
+        </tbody>
+      </table>
+      <div id="contract-comment-modal" class="modal fade">
+       <div class="modal-dialog">
+         <div id="inner-contract-comment-modal" class="modal-content"></div>
+       </div>
+     </div>
+    </div>
+  
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>
+

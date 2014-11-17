@@ -1,0 +1,8 @@
+$("ul.errors").html("")
+<% if @contract.errors.any? %>
+  <% @contract.errors.full_messages.each do |message| %>
+    $("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+  <% end %>
+<% else %>
+  $("#kontrata-modal").modal("hide")
+<% end %>

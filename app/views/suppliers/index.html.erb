@@ -1,0 +1,49 @@
+<% provide(:title, "Furnitoret") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+      
+    </aside>
+    <div class="col-md-8">
+      <h3>Furnitoret</h3>
+      <div class="well">
+        
+          
+          <%= link_to "Furnitor i ri", new_supplier_path, remote: true, class: "btn btn-primary"%>
+        
+      </div>
+      <div class="furnitor-i-ri"></div>
+      <table data-toggle="table" >
+        <thead>
+          <tr>
+            <th class="col-sm-1">Emri furnitorit</th>
+            <th class="col-sm-1">Telefoni</th>
+            <th class="col-sm-1">Emaili</th>
+            <th class="col-sm-1">Vendi</th>
+          </tr>
+        </thead>
+        <tbody class="supplier-index">
+          <%= render "index" %>
+        </tbody>
+      </table>
+     <div id="supplier-modal" class="modal fade">
+       <div class="modal-dialog">
+         <div id="inner-supplier-modal" class="modal-content"></div>
+       </div>
+       
+     </div>
+    </div>
+  </div>
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>
+
