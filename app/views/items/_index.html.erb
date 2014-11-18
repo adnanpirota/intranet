@@ -1,0 +1,12 @@
+<% @items.each do |i| %>
+<tr class="<%= cycle('list_line_odd','list_line_even') %> ">
+  
+  <td class="list_description">
+    <%= link_to i.emertimi, i %>
+  </td>
+  
+  <td class="list_description">
+    <%= i.pershkrimi %>
+  </td>
+</tr>
+<% end %>
