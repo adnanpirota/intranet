@@ -79,7 +79,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgres
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: intranet_production
   username: intranet
   password: <%= ENV['INTRANET_DATABASE_PASSWORD'] %>
