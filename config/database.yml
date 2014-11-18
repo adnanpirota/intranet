@@ -83,5 +83,5 @@ production:
   encoding: unicode
   pool: 5
   database: intranet_production
-  username: intranet
+  username: cyber
   password: <%= ENV['INTRANET_DATABASE_PASSWORD'] %>
