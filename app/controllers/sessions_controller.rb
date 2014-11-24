@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in user
       remember user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
+      redirect_to root_path
     else 
       flash.now[:danger] = 'Emaili dhe fjalekalimi nuk perputhen' 
       render 'new'  

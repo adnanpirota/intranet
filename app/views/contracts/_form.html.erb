@@ -11,14 +11,14 @@
     </div>
     
     <div class="control-group">
-      <%= f.label :supplier_id, class: "control-label" %>
+      <%= f.label :supplier_id, "Furnitori" , class: "control-label" %>
       <div class="controls">
         <%= f.collection_select :supplier_id, Supplier.order(:emri), :id, :emri, include_blank: true %>
       </div>
     </div>
     
     <div class="control-group">
-      <%= f.label :item_id, class: "control-label" %>
+      <%= f.label :item_id, "Artikulli", class: "control-label" %>
       <div class="controls">
         <%= f.collection_select :item_id, Item.order(:emertimi), :id, :emertimi, include_blank: true %>
       </div>
@@ -49,6 +49,20 @@
       <%= f.label :pjesa_mbetur_per_pagese, class: "control-label" %>
       <div class="controls">
         <%= f.text_field :pjesa_mbetur_per_pagese %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :koha_arritjes_port, class: "control-label" %>
+      <div class="controls">
+        <%= f.date_field :koha_arritjes_port %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :koha_reale_arritjes_port, class: "control-label" %>
+      <div class="controls">
+        <%= f.date_field :koha_reale_arritjes_port %>
       </div>
     </div>
   </div>

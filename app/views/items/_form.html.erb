@@ -1,0 +1,26 @@
+<%= form_for @item, remote: true, html: { class: "form-horizontal", style: "display:inline;" }  do |f| %>
+  
+  <div class="modal-body">
+    <ul class="errors"></ul>
+    
+    <div class="control-group">
+      <%= f.label :emertimi, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :emertimi %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :pershkrimi, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :pershkrimi %>
+      </div>
+    </div>
+    
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Shto artikullin",   class: "btn btn-primary" %>
+    <%= link_to "Anulo", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+
+<% end %>

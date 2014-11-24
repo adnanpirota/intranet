@@ -12,6 +12,19 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
   
+  def new
+    @item = Item.new
+  end
+  
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      flash[:success] = "Artikulli u regjistrua me sukses"
+      @items = Item.all
+    else
+      render 'index'
+    end
+  end
   
   private
   
@@ -20,6 +33,10 @@ class ItemsController < ApplicationController
       @user = current_user
       #puts @user.inspect
       redirect_to(root_path) unless @user.departamenti_id == 2
+    end
+    
+    def item_params
+      params.require(:item).permit(:emertimi, :pershkrimi)
     end
   
 end
