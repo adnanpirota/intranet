@@ -13,12 +13,12 @@
       </section>
     </aside>
     <div class="col-md-8">
-    <%= link_to "Prokurimi - Ballina", contracts_path, class: "krejt-kontratat btn btn-lg btn-primary" %>
-      <h3>Furnitori</h3>
-      <h4>Emri: <%= @supplier.emri %></h4></span>
-      <h4>Telefoni: <%= @supplier.telefoni %></h4>
-      <h4>Emaili: <%= @supplier.emaili %></h4>
-      
+      <div class="well">
+        <h3>Emri: <%= @supplier.emri %></h3>
+        <h3>Telefoni: <%= @supplier.telefoni %></h3>
+        <h3>Emaili: <%= @supplier.emaili %></h3>
+        <h3>Vendi: </h3>
+      </div>
       <h1>Kontratat me furnitorin</h1>
       <h3>Kontratat aktive</h3>
       <table data-toggle="table" >

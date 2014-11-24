@@ -32,6 +32,19 @@ class ContractsController < ApplicationController
   end
 
   def edit
+    @contract = Contract.find(params[:id])
+  end
+  
+  def update
+    @contract = Contract.find(params[:id])
+    if @contract.update!(contract_params)
+      flash[:success] = "Te dhenat u edituan me sukses"
+      @contract = Contract.find(params[:id])
+      #redirect_to :back
+      redirect_to contract_contract_comments_path(@contract)
+    else
+      render 'index'
+    end
   end
   
   private 

@@ -1,2 +1,28 @@
-<h1>Contracts#edit</h1>
-<p>Find me in app/views/contracts/edit.html.erb</p>
+<% provide(:title, "Shto kontrate") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+      
+    </aside>
+    <div class="col-md-8">
+      <h1>Korrigjo kontraten</h1>
+      <%= form_for(@contract) do |f| %>
+        <%= render 'form', f: f %>
+    
+        
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>
+

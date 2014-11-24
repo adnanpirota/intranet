@@ -1,7 +1,7 @@
 <% @contracts.each do |contract| %>
 <tr class="<%= cycle('list_line_odd','list_line_even') %> ">
   <td class="list_description">
-    <%= link_to contract.numri_kontrates, contract %>
+    <%= link_to contract.numri_kontrates, contract_contract_comments_path(contract) %>
   </td>
   <td class="list_description">
     <%= link_to contract.supplier.emri, contract.supplier %>

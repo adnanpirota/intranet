@@ -14,11 +14,12 @@
       
     </aside>
     <div class="col-md-8">
-      <h1>Kontrata</h1>
+      
       <div class="well">
-        
-          
-          <%= link_to "Shto koment", new_contract_contract_comment_path, remote: true, class: "btn btn-primary"%>
+            
+        <h3>Detajet e kontrates</h3>  
+        <%= link_to "Edito kontraten", edit_contract_path(@contract), class: "btn btn-primary edit-button"%>
+        <%= link_to "Shto koment", new_contract_contract_comment_path, remote: true, class: "btn btn-primary"%>
         
       </div>
       <div class="contract-comment-i-ri"></div>
