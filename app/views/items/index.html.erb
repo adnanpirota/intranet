@@ -17,16 +17,22 @@
       
       <div class="well">
         
+        
         <h3>Artikujt</h3>
         <%= link_to "Artikull i ri", new_item_path, remote: true, class: "btn btn-primary"%>
-        
+        <div class="row">
+          <%= render 'search' %>
+        </div>
       </div>
+      
+      
       <div class="artikull-i-ri"></div>
       <table data-toggle="table" >
         <thead>
           <tr>
             <th class="col-sm-1">Emri i artikullit</th>
             <th class="col-sm-1">Pershkrimi</th>
+            <th class="col-sm-1">Njesia</th>
           </tr>
         </thead>
         <tbody class="item-index">

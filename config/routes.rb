@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
 
+  get 'warehouse/index'
+
   get 'contracts/index'
 
   get 'contracts/new'

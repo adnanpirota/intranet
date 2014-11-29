@@ -1,0 +1,6 @@
+<%= form_tag items_path, :method => 'get' do %>
+<p>
+  <span class="col-md-3"><%= text_field_tag :search, params[:search] %></span>
+  <span class="col-md-3 btn"><%= submit_tag "Search", :name => nil %></span>
+  </p>
+<% end %> 

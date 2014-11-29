@@ -17,6 +17,13 @@
       </div>
     </div>
     
+        <div class="control-group">
+      <%= f.label :unit_id, "Njesia matese" ,  class: "control-label" %>
+      <div class="controls">
+        <%= f.collection_select :unit_id, Unit.order(:id), :id, :njesia, include_blank: true %>
+      </div>
+    </div>
+    
   </div>
   <div class="modal-footer">
     <%= f.submit "Shto artikullin",   class: "btn btn-primary" %>

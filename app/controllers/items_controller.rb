@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
   end
   
   def index
-    @items = Item.all
+    #@items = Item.all
+    @items = Item.search(params[:search])
   end
   
   def new
@@ -26,6 +27,10 @@ class ItemsController < ApplicationController
     end
   end
   
+  def search
+    @items = Item.search params[:search]
+  end
+  
   private
   
   
@@ -36,7 +41,7 @@ class ItemsController < ApplicationController
     end
     
     def item_params
-      params.require(:item).permit(:emertimi, :pershkrimi)
+      params.require(:item).permit(:emertimi, :pershkrimi, :unit_id)
     end
   
 end

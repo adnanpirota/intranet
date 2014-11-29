@@ -8,5 +8,13 @@
   <td class="list_description">
     <%= i.pershkrimi %>
   </td>
+  
+  <td class="list_description">
+    <% if i.unit_id.nil? %>
+      <%= "nuk ka" %>
+    <% else %>
+      <%= i.unit.njesia %>
+    <% end %>
+  </td>
 </tr>
 <% end %>
