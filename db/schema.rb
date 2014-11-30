@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127134431) do
+ActiveRecord::Schema.define(version: 20141130194226) do
 
   create_table "contract_comments", force: true do |t|
     t.integer  "contract_id"
@@ -70,6 +70,12 @@ ActiveRecord::Schema.define(version: 20141127134431) do
   add_index "leaves", ["user_id", "created_at"], name: "index_leaves_on_user_id_and_created_at"
   add_index "leaves", ["user_id"], name: "index_leaves_on_user_id"
 
+  create_table "njesia", force: true do |t|
+    t.string   "njesia"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "suppliers", force: true do |t|
     t.string   "emri"
     t.string   "telefoni"
@@ -108,9 +114,11 @@ ActiveRecord::Schema.define(version: 20141127134431) do
     t.string   "picture"
     t.string   "remember_token"
     t.integer  "departamenti_id"
+    t.integer  "department_id"
   end
 
   add_index "users", ["departamenti_id"], name: "index_users_on_departamenti_id"
+  add_index "users", ["department_id"], name: "index_users_on_department_id"
   add_index "users", ["emaili"], name: "index_users_on_emaili", unique: true
 
 end

@@ -7,6 +7,7 @@ module SessionsHelper
    # user.update_attribute(:remember_token, User.digest(remember_token))
     # qet resht perfundi e kom hek kur e kom riprogramu sesionin tu u bazu ne kodin ne git
     session[:user_id] = user.id
+    session[:departamenti_id] = user.departamenti_id
    # self.current_user = user
   end
   
@@ -60,13 +61,14 @@ module SessionsHelper
   
   # Logs out the current user
   def log_out
-    logger.debug "TUNG nga metoda log_out ... "
+    #logger.debug "TUNG nga metoda log_out ... "
     current_user.update_attribute(:remember_token, User.digest(User.new_remember_token))
     cookies.delete(:remember_token)
     self.current_user = nil
     # rreshtat ma posht i kom komentu kur e kom mar kodin prej githubit
     forget(current_user)
     session.delete(:user_id)
+    session.delete(:departamenti_id)
     @current_user = nil
   end
   
