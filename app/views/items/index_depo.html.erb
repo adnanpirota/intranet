@@ -1,0 +1,55 @@
+<% provide(:title, "Furnitoret") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+      
+    </aside>
+    <div class="col-md-8">
+      
+      <div class="well">
+        
+        <h3>Artikujt e depos</h3>
+        
+        
+        <div class="row">
+          <%= render 'search' %>
+          <%= link_to "Artikull i ri", new_item_path, remote: true, class: "btn btn-primary"%>
+        </div>
+      </div>
+      
+      
+      <div class="artikull-i-ri"></div>
+      <table data-toggle="table" >
+        <thead>
+          <tr>
+            <th class="col-sm-1">Emri i artikullit</th>
+            <th class="col-sm-1">Pershkrimi</th>
+            <th class="col-sm-1">Njesia</th>
+            <th class="col-sm-1">Dep</th>
+          </tr>
+        </thead>
+        <tbody class="item-index">
+          <%= render "index" %>
+        </tbody>
+      </table>
+     <div id="item-modal" class="modal fade">
+       <div class="modal-dialog">
+         <div id="inner-item-modal" class="modal-content"></div>
+       </div>
+       
+     </div>
+    </div>
+  </div>
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>
+

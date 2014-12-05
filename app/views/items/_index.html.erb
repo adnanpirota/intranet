@@ -16,5 +16,14 @@
       <%= i.unit.njesia %>
     <% end %>
   </td>
+  
+  <td class="list_description">
+    <% if i.department_id.nil? %>
+      <%= "nuk ka" %>
+    <% else %>
+      <%= i.department_id %>
+    <% end %>
+  </td>
+  
 </tr>
 <% end %>

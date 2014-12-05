@@ -6,11 +6,23 @@ class ItemsController < ApplicationController
     @user = current_user
     @item = Item.find(params[:id])
     @contract = @item.contracts
+    if @user.department_id == 2
+      render 'show'
+    else
+      render 'show_depo'
+    end
   end
   
   def index
     #@items = Item.all
     @items = Item.search(params[:search])
+    if @user.department_id == 2
+      render 'index'
+    else
+      #puts @user.inspect
+      @items = Item.artikujt_e_njesis(@user.department_id)
+      render 'index_depo'
+    end
   end
   
   def new
@@ -36,8 +48,10 @@ class ItemsController < ApplicationController
   
     def staf_i_prokutimit
       @user = current_user
-      #puts @user.inspect
-      redirect_to(root_path) unless @user.departamenti_id == 2
+      puts @user.inspect
+      redirect_to(root_path) unless @user.department_id == 6 || @user.department_id == 2
+      
+      
     end
     
     def item_params
