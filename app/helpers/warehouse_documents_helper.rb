@@ -1,0 +1,2 @@
+module WarehouseDocumentsHelper
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204151008) do
+ActiveRecord::Schema.define(version: 20141212211722) do
 
   create_table "contract_comments", force: true do |t|
     t.integer  "contract_id"
@@ -122,5 +122,31 @@ ActiveRecord::Schema.define(version: 20141204151008) do
   add_index "users", ["departamenti_id"], name: "index_users_on_departamenti_id"
   add_index "users", ["department_id"], name: "index_users_on_department_id"
   add_index "users", ["emaili"], name: "index_users_on_emaili", unique: true
+
+  create_table "warehouse_details", force: true do |t|
+    t.integer  "warehouse_document_id"
+    t.decimal  "sasia"
+    t.decimal  "cmimi"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "item_id"
+  end
+
+  add_index "warehouse_details", ["item_id"], name: "index_warehouse_details_on_item_id"
+  add_index "warehouse_details", ["warehouse_document_id"], name: "index_warehouse_details_on_warehouse_document_id"
+
+  create_table "warehouse_documents", force: true do |t|
+    t.boolean  "pranimdalje"
+    t.integer  "supplier_id"
+    t.integer  "department_id"
+    t.datetime "dataora"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "request_id"
+    t.integer  "depo"
+  end
+
+  add_index "warehouse_documents", ["department_id"], name: "index_warehouse_documents_on_department_id"
+  add_index "warehouse_documents", ["supplier_id"], name: "index_warehouse_documents_on_supplier_id"
 
 end

@@ -1,0 +1,32 @@
+<% provide(:title, "Pranim malli") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+      
+    </aside>
+    
+    
+    <h1>Pranim malli</h1>
+    <div class="col-md-8">
+
+      <%= render'form' %>
+
+    </div>
+    
+    <div clas="col-md-8">
+      <%= render'pranimet' %>
+    </div>
+    
+  </div>
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>  

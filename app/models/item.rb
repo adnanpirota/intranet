@@ -1,6 +1,8 @@
 class Item < ActiveRecord::Base
   has_many :contracts
+  has_many :warehouse_details
   belongs_to :unit
+  
   
   def self.artikujt_e_njesis(depid)
     

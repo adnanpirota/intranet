@@ -1,0 +1,27 @@
+<% @warehouse_details.each do |d| %>
+<tr>
+  
+  <td class="list_description">
+    <%= d.item.emertimi %>
+  </td>
+  
+  <td>
+    <%= d.sasia %>
+  </td>
+  
+  <td>
+    <%= d.cmimi %>
+  </td>
+  
+</tr>
+<% end %>
+<table>
+  <tr>
+    <td>Totali:</td>
+    <td><%= 55 %></td>
+  </tr>
+</table>
+<div class="container-fluid">
+<h3>Totali:</h3>
+<h2><%= 55 %></h2>
+</div>

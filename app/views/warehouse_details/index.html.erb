@@ -1,0 +1,50 @@
+<% provide(:title, "Artikulli") %>
+<% if logged_in? %>
+  <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+      
+    </aside>
+    
+    <div class="col-md-8">
+      <h1>Transaksioni</h1>
+      <div class="well">
+            
+        <h3>Detajet e kontrates</h3>  
+        <h3></h3>
+        <%= @warehouse_document.inspect %>
+        <%= link_to "Shto artikull", new_warehouse_document_warehouse_detail_path, remote: true, class: "btn btn-primary" %>
+        
+      </div>
+      
+        <h3>Artikujt</h3>
+        <table data-toggle="table" class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="col-sm-1">PranimiDalja</th>
+              <th class="col-sm-1">Sasia</th>
+              <th class="col-sm-1">Cmimi</th>
+            </tr>
+          </thead>
+          <tbody class="warehouse-detail-index">
+            <%= render "index" %>
+          </tbody>
+        </table>
+        
+        <div id="warehouse-detail-modal" class="modal fade">
+        <div class="modal-dialog">
+         <div id="inner-warehouse-detail-modal" class="modal-content"></div>
+       </div>
+     </div>
+      
+    </div>  
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>

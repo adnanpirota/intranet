@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   
 
+  get 'warehouse_details/index'
+
   get 'warehouse/index'
 
   get 'contracts/index'
@@ -25,6 +27,12 @@ Rails.application.routes.draw do
   
   get 'leaves' => 'leaves#index'
   get 'leaves/new' => 'leaves#new'
+  
+  #get 'pranim_malli' => 'warehouse_documents#pranim_malli'
+  get '/warehouse_documents/pranim_malli' => 'warehouse_documents#pranim_malli'
+  post '/warehouse_documents/pranim_malli' => 'warehouse_documents#create'
+  get 'dalje_depo' => 'warehouse_documents#dalje_depo'
+  
   resources :users, except: [:delete]
   resources :leaves, only: [:create, :destroy]
   
@@ -39,6 +47,10 @@ Rails.application.routes.draw do
   resources :suppliers, except: [:delete]
   
   resources :items, except: [:delete]
+  
+  resources :warehouse_documents, except: [:delete] do 
+    resources :warehouse_details, :only => [:create, :index, :new]
+  end
    
   
   resources :account_activations, only: [:edit]
