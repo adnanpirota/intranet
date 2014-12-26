@@ -1,0 +1,41 @@
+<%= form_for @warehouse_document, url: {action: "create_dalje"},  html: { class: "form-horizontal", style: "display:inline;" }  do |f| %>
+  
+  <div class="modal-body">
+    <ul class="errors"></ul>
+    
+    <div class="control-group">
+      <%= f.label :user_id, "Punetori", class: "control-label" %>
+      <div class="controls">
+        <%= f.collection_select :user_id, User.order(:emri), :id, :emri, include_blank: true, class: "form-control" %>
+      </div>
+    </div>
+    
+    
+    <div class="control-group">
+      <%= f.label :nrfatures, "Reparti", class: "control-label" %>
+      <div class="controls">
+        <%= f.collection_select :department_id, Department.order(:id), :id, :departamenti, include_blank: true, class: "form-control"  %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :shenim, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_area :shenim, class: "form-control", size: "50x5" %>
+      </div>
+      
+    </div>
+    
+    <%= hidden_field(:pranimdalje, 0) %>
+    
+    
+    
+           
+    
+  </div>
+  <div class="modal-footer">
+    <%= f.submit "Shto artikujt",   class: "btn btn-primary" %>
+    <%= link_to "Anulo", "#", class: "btn", data: {dismiss: "modal"} %>
+  </div>
+
+<% end %>

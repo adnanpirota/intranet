@@ -1,28 +1,49 @@
 class WarehouseDocumentsController < ApplicationController
   
   before_action :staf_i_depos
+  respond_to :html, :js
   
   def index
     
-    @warehouse_documents = WarehouseDocument.msillosi
+    #@warehouse_documents = WarehouseDocument.pranim
   
   end
   
-  def new
+  def show
+    @warehouse_document = WarehouseDocument.find(params[:id])
+  end
   
+  def new
+    @warehouse_document = WarehouseDocument.new
     
-  end 
+  end
+  
+  def newd
+    @warehouse_document = WarehouseDocument.new
+  end
+  
+  
   
   def pranim_malli
-    @warehouse_documents = WarehouseDocument.msillosi
+    @warehouse_documents = WarehouseDocument.pranim_desc
     @warehouse_document = WarehouseDocument.new
     
     
-  end 
+  end
+  
+  def dalje
+    @warehouse_documents = WarehouseDocument.dalje
+    @warehouse_document = WarehouseDocument.new
+    
+      
+    #render 'newd.js.erb'
+  end
   
   def create
     @warehouse_document = WarehouseDocument.new(warehouse_document_params)
     @warehouse_document.update_attribute(:depo, @user.department_id)
+    @warehouse_document.update_attribute(:dataora, Time.now)
+    @warehouse_document.update_attribute(:pranimdalje, false)
     if @warehouse_document.save
       
       puts @warehouse_document.id
@@ -35,9 +56,22 @@ class WarehouseDocumentsController < ApplicationController
     end
   end
   
-  def dalje_depo
+  def create_dalje
+    @warehouse_document = WarehouseDocument.new(warehouse_document_params)
+    @warehouse_document.update_attribute(:depo, @user.department_id)
+    @warehouse_document.update_attribute(:pranimdalje, true)
+    @warehouse_document.update_attribute(:dataora, Time.now)
+    if @warehouse_document.save
+      
+      redirect_to details_dalje_path(@warehouse_document)
+      
+    else
+      flash[:failure] = "Dalja nuk mund te behet"
+      render '/warehouse_documents'
+    end
     
-  end 
+  end
+   
   
   private
   
@@ -48,7 +82,7 @@ class WarehouseDocumentsController < ApplicationController
     end
     
     def warehouse_document_params
-      params.require(:warehouse_document).permit(:supplier_id, :request_id)
+      params.require(:warehouse_document).permit(:supplier_id, :request_id, :user_id, :shenim, :department_id)
     end
 
 

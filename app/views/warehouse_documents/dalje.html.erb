@@ -17,9 +17,10 @@
     <div class="container col-md-8">
       <div class="center jumbotron">
         <div class="well">
-          <h1>Furnizimet</h1>
+          
+          <h1>Daljet nga depo</h1>
           <%= link_to "Ballina", warehouse_documents_path, class: "btn btn-primary float-left" %>
-          <%= link_to "Furnizim i ri", new_warehouse_document_path, remote: true, class: "btn btn-primary float-right" %>
+          <%= link_to "Bej dalje", newd_path, remote: true, class: "btn btn-primary float-right" %>
         </div>
       </div>
       
@@ -27,14 +28,13 @@
         <thead>
           <tr>
             <th class="col-sm-1">Id</th>
-            <th class="col-sm-1">Nr kerkeses</th>
-            <th class="col-sm-2">Data</th>
-            <th class="col-sm-2">Furnitori</th>
-            <th class="col-sm-1">Nr fatures</th>
+            <th class="col-sm-2">DataOra</th>
+            <th class="col-sm-1">Punetori</th>
+            <th class="col-sm-2">Reparti</th>
           </tr>
         </thead>
           <tbody class="pranimet-index">
-            <%= render "pranimet" %>
+            <%= render "daljet" %>
           </tbody>
       </table>
     

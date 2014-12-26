@@ -6,6 +6,7 @@ class SuppliersController < ApplicationController
     @user = current_user
     @supplier = Supplier.find(params[:id])
     @kontratat_e_furnitorit = @supplier.contracts
+    @kontratat_e_kompletuara = @supplier.contracts
   end
   
   def index

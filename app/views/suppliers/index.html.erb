@@ -1,5 +1,6 @@
 <% provide(:title, "Furnitoret") %>
 <% if logged_in? %>
+
   <div class="row">
     <aside class="col-md-4">
       <section class="user_info">
@@ -11,18 +12,19 @@
       <section class="perkujtimet_info">
         <%= render 'shared/perkujtimet' %>
       </section>
-      
     </aside>
-    <div class="col-md-8">
-      
-      <div class="well">
+    
+    <div class="container col-md-8">
+      <div class="center jumbotron">
+        <div class="well">
         
-        <h3>Furnitoret</h3>
-        <%= link_to "Furnitor i ri", new_supplier_path, remote: true, class: "btn btn-primary"%>
+          <h3>Furnitoret</h3>
+          <%= link_to "Furnitor i ri", new_supplier_path, remote: true, class: "btn btn-primary"%>
         
+        </div>
       </div>
       <div class="furnitor-i-ri"></div>
-      <table data-toggle="table" >
+      <table data-toggle="table" class="table table-bordered col-md-12">
         <thead>
           <tr>
             <th class="col-sm-1">Emri furnitorit</th>

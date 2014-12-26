@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212211722) do
+ActiveRecord::Schema.define(version: 20141225204341) do
 
   create_table "contract_comments", force: true do |t|
     t.integer  "contract_id"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20141212211722) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "item_id"
+    t.boolean  "pranimdalje"
   end
 
   add_index "warehouse_details", ["item_id"], name: "index_warehouse_details_on_item_id"
@@ -144,9 +145,13 @@ ActiveRecord::Schema.define(version: 20141212211722) do
     t.datetime "updated_at"
     t.integer  "request_id"
     t.integer  "depo"
+    t.string   "nrfatures"
+    t.integer  "user_id"
+    t.text     "shenim"
   end
 
   add_index "warehouse_documents", ["department_id"], name: "index_warehouse_documents_on_department_id"
   add_index "warehouse_documents", ["supplier_id"], name: "index_warehouse_documents_on_supplier_id"
+  add_index "warehouse_documents", ["user_id"], name: "index_warehouse_documents_on_user_id"
 
 end

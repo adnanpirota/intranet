@@ -14,15 +14,16 @@ class ItemsController < ApplicationController
   end
   
   def index
-    #@items = Item.all
-    @items = Item.search(params[:search])
-    if @user.department_id == 2
-      render 'index'
-    else
-      #puts @user.inspect
-      @items = Item.artikujt_e_njesis(@user.department_id)
-      render 'index_depo'
-    end
+    @items = Item.tenjesis(@user.department_id)
+    
+    #@items = Item.search(params[:search])
+      if params[:search]
+        puts "paska search #{:search}"
+        @items = Item.tenjesis(@user.department_id).starts_with(params[:search])
+      else
+        puts  "nuk paska search"
+        @items = Item.tenjesis(@user.department_id)
+      end
   end
   
   def new
@@ -31,9 +32,10 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    @item.update_attribute(:department_id, @user.department_id)
     if @item.save
       flash[:success] = "Artikulli u regjistrua me sukses"
-      @items = Item.all
+      @items = Item.tenjesis(@user.department_id)
     else
       render 'index'
     end

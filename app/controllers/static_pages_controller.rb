@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       @user = current_user
       
-      logger.debug "Mbasi qe u thir logged_in qe parimisht dmth se kemi login dhe current_user osht: #{current_user.inspect}"
+      #logger.debug "Mbasi qe u thir logged_in qe parimisht dmth se kemi login dhe current_user osht: #{current_user.inspect}"
       @leave = current_user.leaves.build
     end
   end

@@ -4,16 +4,37 @@
     <ul class="errors"></ul>
     
     <div class="control-group">
-      <%= f.label :request_id, class: "control-label" %>
+      <%= f.label :request_id, "Numri kerkeses", class: "control-label" %>
       <div class="controls">
         <%= f.text_field :request_id %>
       </div>
     </div>
     
     <div class="control-group">
-      <%= f.label :supplier_id, class: "control-label" %>
+      <%= f.label :supplier_id, "Furnitori", class: "control-label" %>
+      
+      
+      
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="input-group">
+        
+          <%= f.collection_select :supplier_id, Supplier.order(:id), :id, :emri, include_blank: true, class: "form-control" %>
+          
+          <span class="input-group-btn">
+            <%= link_to "Shto Furnitor", suppliers_path, class: "btn btn-default" %>
+          </span>
+          
+        </div>  
+      </div>
+    </div>  
+    
+    <div class="control-group">
+      <%= f.label :nrfatures, "Numri fatures", class: "control-label" %>
       <div class="controls">
-        <%= f.collection_select :supplier_id, Supplier.order(:id), :id, :emri, include_blank: true %>
+        <%= f.text_field :nrfatures %>
       </div>
     </div>
     

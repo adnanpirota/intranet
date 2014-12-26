@@ -1,4 +1,4 @@
-<% provide(:title, "Artikulli") %>
+<% provide(:title, "Artikujt - Dalje") %>
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
@@ -14,14 +14,14 @@
     </aside>
     <div class="container col-md-8">
       <div class="center jumbotron">
-        <h3>Fatura</h3>
+        <h3>Dalje nga depo</h3>
           <div class="well">
-            <h3>Furnitori: <%= @warehouse_document.supplier.emri %></h3>
-            <h3>Nr. kerkeses: <%= @warehouse_document.request_id %></h3>
-            <h3>Nr. fatures: <%= @warehouse_document.nrfatures %></h3>
+            <h3>Punetori: <%= @warehouse_document.user.emri %></h3>
+            <h3>Reparti: <%= @warehouse_document.department.departamenti %></h3>
+            <h3>Shenim: <%= @warehouse_document.shenim %></h3>
             
           </div>
-          <%= link_to "Shto artikull", new_warehouse_document_warehouse_detail_path, remote: true, class: "btn btn-primary" %>
+          <%= link_to "Shto artikull", newart_dalje_path, remote: true, class: "btn btn-primary" %>
       </div>
       <h3>Artikujt</h3>
       
@@ -36,7 +36,7 @@
             </tr>
           </thead>
           <tbody class="wdetail-index">
-            <%= render "index" %>
+            <%= render "artikujt_dalje" %>
           </tbody>
         </table>
         <%= link_to "Ruaje faturen", warehouse_documents_path, class: "btn btn-primary" %>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   
 
-  get 'warehouse_details/index'
+  
 
   get 'warehouse/index'
 
@@ -31,7 +31,18 @@ Rails.application.routes.draw do
   #get 'pranim_malli' => 'warehouse_documents#pranim_malli'
   get '/warehouse_documents/pranim_malli' => 'warehouse_documents#pranim_malli'
   post '/warehouse_documents/pranim_malli' => 'warehouse_documents#create'
-  get 'dalje_depo' => 'warehouse_documents#dalje_depo'
+  get '/warehouse_documents/dalje', to: 'warehouse_documents#dalje', as: 'depo_dalje'
+  get 'newd' => 'warehouse_documents#newd'
+  post '/warehouse_documents/dalje' => 'warehouse_documents#create_dalje'
+  get '/warehouse_documents/:warehouse_document_id/warehouse_details/daljedet', to: 'warehouse_details#daljedet', as: 'details_dalje'
+  get 'newdt' => 'warehouse_details#new_dalje'
+  
+  get '/warehouse_documents/:warehouse_document_id/warehouse_details/newart_dalje', to: 'warehouse_details#newart_dalje', as: 'newart_dalje'
+  
+  post '/warehouse_documents/:warehouse_document_id/warehouse_details/create_art_dalje', to: 'warehouse_details#create_art_dalje', as: 'create_art_dalje'
+ 
+  
+  #get '/warehouse_documents/show' => 'warehouse_documents#show'
   
   resources :users, except: [:delete]
   resources :leaves, only: [:create, :destroy]

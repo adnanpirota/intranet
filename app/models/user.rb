@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
                     dependent: :destroy
                     
   has_many :updates, through: :updates, source: :user
+  has_many :warehouse_documents
+  
   belongs_to :department
   #attr_accessor :remember_token, :activation_token
   before_save :downcase_email
