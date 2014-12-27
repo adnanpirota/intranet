@@ -1,0 +1,47 @@
+<% provide(:title, "Kerko artikullin") %>
+<% if logged_in? %>
+  
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="pending_info">
+        <%= render 'shared/pending_info' %>
+      </section>
+      <section class="perkujtimet_info">
+        <%= render 'shared/perkujtimet' %>
+      </section>
+    </aside>
+  
+    <div class="container col-md-8">
+      <div class="center jumbotron">
+        <div class="well">
+          <h1>Kartela artikullit</h1>
+        </div>
+      </div>
+      
+      <table data-toggle="table" class="table table-bordered col-md-12">
+        <thead>
+          <tr>
+            <th class="col-sm-1">Id</th>
+            <th class="col-sm-2">Transaksioni</th>
+            <th class="col-sm-2">Data dhe ora</th>
+            <th class="col-sm-1">Sasia</th>
+          </tr>
+        </thead>
+          <tbody class="artikujt-index">
+            <%= render "kartela_artikullit" %>
+          </tbody>
+      </table>
+    
+      <div id="warehouse-document-modal" class="modal fade">
+        <div class="modal-dialog">
+          <div id="inner-warehouse-document-modal" class="modal-content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h3>Kycuni, ju lutem!</h3>  
+<% end %>  

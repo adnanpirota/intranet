@@ -11,6 +11,13 @@ class WarehouseDocumentsController < ApplicationController
   
   def show
     @warehouse_document = WarehouseDocument.find(params[:id])
+    if @warehouse_document.pranimdalje == false
+      
+      render 'showhyrje'
+    else
+      
+      render 'showdalje'
+    end
   end
   
   def new
@@ -70,6 +77,16 @@ class WarehouseDocumentsController < ApplicationController
       render '/warehouse_documents'
     end
     
+  end
+  
+  def artikujt_per_kartele
+    @lista_artikujve = Item.tenjesis(@user.department_id).kerkimi_per_kartele(params[:search])
+  end
+  
+  def kartela_artikullit
+    puts "te kartela_artikullit ne warehouse_documents_controller"
+    @kartela = WarehouseDetail.kartela(params[:item_id])
+    puts @kartela.inspect
   end
    
   

@@ -1,0 +1,28 @@
+<% s = 0 %>
+<% @warehouse_document.warehouse_details.each do |d| %>
+<tr>
+  
+  <td class="list_description">
+    <%= d.item.emertimi %>
+  </td>
+  
+  <td>
+    <%= d.sasia %>
+  </td>
+  
+  <td>
+    <%= d.cmimi %>
+  </td>
+  
+  <td>
+    <%= dtot = d.sasia * d.cmimi %>
+  </td>
+  
+</tr>
+<% s += dtot %>
+<% end %>
+
+<tr>
+  <td><h3>Totali:  </h3></td>
+  <td><h1><%= s %></h1></td>
+</tr>

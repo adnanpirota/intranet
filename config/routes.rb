@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   get '/warehouse_documents/:warehouse_document_id/warehouse_details/newart_dalje', to: 'warehouse_details#newart_dalje', as: 'newart_dalje'
   
   post '/warehouse_documents/:warehouse_document_id/warehouse_details/create_art_dalje', to: 'warehouse_details#create_art_dalje', as: 'create_art_dalje'
+  
+  get '/warehouse-details/artikujt-per-kartele', to: 'warehouse_details#artikujt_per_kartele', as: 'artikujt_per_kartele'
+  get '/warehouse-details/kartela-artikullit', to: 'warehouse_details#kartela_artikullit', as: 'kartela_artikullit'
  
   
   #get '/warehouse_documents/show' => 'warehouse_documents#show'

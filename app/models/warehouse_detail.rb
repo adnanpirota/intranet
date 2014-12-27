@@ -23,4 +23,9 @@ class WarehouseDetail < ActiveRecord::Base
     
     pranim.artikulli(id)
   end
+  
+  def self.kartela(item_id)
+    puts "item_id ne self.kartela osht #{item_id}"
+    where(item_id: item_id)
+  end
 end

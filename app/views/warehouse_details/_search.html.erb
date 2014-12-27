@@ -1,0 +1,6 @@
+<%= form_tag artikujt_per_kartele_path, :method => 'get' do %>
+<p>
+  <span class="col-md-3"><%= text_field_tag :search, params[:search] %></span>
+  <span class="col-md-3 btn"><%= submit_tag "Kerko", :name => nil %></span>
+  </p>
+<% end %> 

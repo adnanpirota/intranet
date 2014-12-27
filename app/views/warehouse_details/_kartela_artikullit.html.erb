@@ -1,0 +1,41 @@
+<% s = 0 %>
+<% @kartela.each do |k| %>
+<tr class="<%= cycle('list_line_odd','list_line_even') %>" >
+  
+  <td class="list_description">
+    <%= link_to k.warehouse_document_id, warehouse_document_path(k.warehouse_document_id) %> 
+  </td>
+  
+  <td class="list_description">
+    <% if k.warehouse_document.pranimdalje == true %>
+      <span style="font-weight: bold;margin-right: 8px;">D    </span>
+      <%= k.warehouse_document.user.emri %>
+    <% else %>
+      <span style="font-weight: bold; margin-right: 8px;">H    </span>   
+      <%= k.warehouse_document.supplier.emri %>
+    <% end %>
+    
+  </td>
+  
+  <td>
+    <%= k.created_at.to_date %>
+  </td>
+  
+  <td>
+    <%= k.sasia %>
+  </td>
+</tr>
+<% s += k.sasia %>
+<% end %>
+
+<tr>
+  <td></td>
+  <td></td>
+  <td><h3>Sasia ne depo:  </h3></td>
+  
+  
+  <td><h1><%= s %></h1></td>
+</tr>
+
+
+

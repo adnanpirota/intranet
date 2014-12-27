@@ -63,6 +63,9 @@ class WarehouseDetailsController < ApplicationController
     
     
     @warehouse_detail.update_attribute(:cmimi, @artikujt.cmimi)
+    @warehouse_detail.update_attribute(:sasia, -@warehouse_detail.sasia)
+    puts @warehouse_detail.sasia
+    
     
     if @warehouse_detail.save
       
@@ -76,6 +79,15 @@ class WarehouseDetailsController < ApplicationController
     end
     
   end
+  
+  def artikujt_per_kartele
+    @lista_artikujve = Item.tenjesis(@user.department_id).kerkimi_per_kartele(params[:search])
+  end
+  
+  def kartela_artikullit
+    puts "jom ne kartela_artikullit ne warehouse_detail"
+    @kartela = WarehouseDetail.kartela(params[:id])
+  end
 
   
   def show
@@ -86,7 +98,11 @@ class WarehouseDetailsController < ApplicationController
    private
    
     def fatura_ose_pranimi_aktual
-      @warehouse_document = WarehouseDocument.find(params[:warehouse_document_id])
+      if params[:warehouse_document_id] 
+        @warehouse_document = WarehouseDocument.find(params[:warehouse_document_id])
+      else
+        
+      end
     end
   
     def staf_i_depos

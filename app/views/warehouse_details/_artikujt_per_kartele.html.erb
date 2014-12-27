@@ -1,0 +1,16 @@
+<% @lista_artikujve.each do |a| %>
+<tr class="<%= cycle('list_line_odd','list_line_even') %>" >
+  
+  <td class="list_description">
+    <%= link_to a.id, kartela_artikullit_path(:id => a.id) %> 
+  </td>
+  
+  <td class="list_description">
+    <%= a.inspect %>
+  </td>
+  
+</tr>
+
+<% end %>
+
+
