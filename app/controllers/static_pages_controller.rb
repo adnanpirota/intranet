@@ -1,11 +1,13 @@
 class StaticPagesController < ApplicationController
+  before_action :user_i_kycur
+  
   def home
     logger.debug "Para se me thir logged_in?"
     if logged_in?
       @user = current_user
       
       #logger.debug "Mbasi qe u thir logged_in qe parimisht dmth se kemi login dhe current_user osht: #{current_user.inspect}"
-      @leave = current_user.leaves.build
+      #@leave = current_user.leaves.build
     end
   end
 
@@ -15,4 +17,11 @@ class StaticPagesController < ApplicationController
   def about
   end
   
+  private
+  
+    def user_i_kycur
+      @user = current_user
+      #puts @user.inspect
+      redirect_to(root_path) unless @user.department_id == 2 || @user.department_id == 3
+    end
 end
