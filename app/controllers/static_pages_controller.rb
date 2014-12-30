@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   def home
     logger.debug "Para se me thir logged_in?"
     if logged_in?
+      puts "mrenda logged_in? pra useri duhet me kon loggedin"
       @user = current_user
       
       #logger.debug "Mbasi qe u thir logged_in qe parimisht dmth se kemi login dhe current_user osht: #{current_user.inspect}"
