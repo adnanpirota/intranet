@@ -95,7 +95,7 @@ class WarehouseDocumentsController < ApplicationController
     def staf_i_depos
       @user = current_user
       #puts @user.inspect
-      redirect_to(root_path) unless @user.department_id == 6 || @user.department_id == 5
+      redirect_to(root_path) unless @user.department_id == 2 || @user.department_id == 3
     end
     
     def warehouse_document_params
