@@ -38,6 +38,6 @@ class SuppliersController < ApplicationController
     def staf_i_prokutimit
       @user = current_user
       #puts @user.inspect
-      redirect_to(root_path) unless @user.departamenti_id == 2
+      redirect_to(root_path) unless @user.department_id == 2 || @user.department_id == 3 || @user.department_id == 6 || @user.admin == true
     end
 end
