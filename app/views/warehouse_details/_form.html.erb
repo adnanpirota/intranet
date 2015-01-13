@@ -2,11 +2,16 @@
   <div class="modal-body">
     <ul class="errors"></ul>
     
-    <div class="control-group">
-      <%= f.label :item_id, "Artikullil", class: "control-label" %>
-      <div class="controls">
-
-        <%= f.collection_select :item_id, Item.tenjesis(@user.department_id).order(:id), :id, :emertimi, include_blank: true %>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.label :item_id, "Artikullil", class: "control-label" %>
+        <div class="input-group">
+          <%= f.collection_select :item_id, Item.tenjesis(@user.department_id).order(:id), :id, :emertimi, include_blank: true %>
+          <span class="input-group-btn">
+            <%= link_to "Shto artikullin", anulo_furnizimin_path, class: "btn btn-default" %>
+          </span>
+        </div>
       </div>
     </div>
     

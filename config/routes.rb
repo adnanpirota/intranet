@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get 'leaves' => 'leaves#index'
   get 'leaves/new' => 'leaves#new'
   
+  
+  
   #get 'pranim_malli' => 'warehouse_documents#pranim_malli'
   get '/warehouse_documents/pranim_malli' => 'warehouse_documents#pranim_malli'
   post '/warehouse_documents/pranim_malli' => 'warehouse_documents#create'
@@ -36,6 +38,7 @@ Rails.application.routes.draw do
   post '/warehouse_documents/dalje' => 'warehouse_documents#create_dalje'
   get '/warehouse_documents/:warehouse_document_id/warehouse_details/daljedet', to: 'warehouse_details#daljedet', as: 'details_dalje'
   get 'newdt' => 'warehouse_details#new_dalje'
+  get 'warehouse_documents/:warehouse_document_id/warehouse_details/anulo_furnizimin', to: 'warehouse_details#anulo_furnizimin', as: 'anulo_furnizimin'
   
   get '/warehouse_documents/:warehouse_document_id/warehouse_details/newart_dalje', to: 'warehouse_details#newart_dalje', as: 'newart_dalje'
   

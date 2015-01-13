@@ -93,6 +93,11 @@ class WarehouseDetailsController < ApplicationController
   def show
   end
   
+  def anulo_furnizimin
+    @warehouse_document.destroy
+    redirect_to items_path
+  end
+  
   
   
    private
