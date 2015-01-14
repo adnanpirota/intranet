@@ -36,9 +36,12 @@ class WarehouseDetailsController < ApplicationController
   
 
   def create
-    puts "jom ne veq-create"
+    #puts "jom ne veq-create"
     @warehouse_detail = @warehouse_document.warehouse_details.build(warehouse_details_params)
     @warehouse_detail.update_attribute(:pranimdalje, false)
+    if @warehouse_detail.cmimi.nil?
+      @warehouse_detail.update_attribute(:cmimi, 0)
+    end
     
     
     if @warehouse_detail.save
