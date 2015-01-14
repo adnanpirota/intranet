@@ -25,6 +25,6 @@ class StaticPagesController < ApplicationController
     def user_i_kycur
       @user = current_user
       puts @user.inspect
-      redirect_to(help_path) unless @user.department_id == 2 || @user.department_id == 3
+      redirect_to(help_path) unless @user.department_id == 2 || @user.department_id == 3 || @user.admin == true
     end
 end
