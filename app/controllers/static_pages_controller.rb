@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
       
       @user = current_user
       
-      redirect_to(help_path) unless @user.department_id == 2 || @user.department_id == 3
+      redirect_to(help_path) unless @user.department_id == 2 || @user.department_id == 3 || @user.department_id == 6 || @user.admin == true
       #logger.debug "Mbasi qe u thir logged_in qe parimisht dmth se kemi login dhe current_user osht: #{current_user.inspect}"
       #@leave = current_user.leaves.build
     end
@@ -25,6 +25,6 @@ class StaticPagesController < ApplicationController
     def user_i_kycur
       @user = current_user
       puts @user.inspect
-      redirect_to(help_path) unless @user.department_id == 2 || @user.department_id == 3 || @user.admin == true
+      redirect_to(help_path) unless @user.department_id == 2 || @user.department_id == 3 || @user.department_id == 6 || @user.admin == true
     end
 end
