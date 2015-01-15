@@ -84,7 +84,7 @@ class WarehouseDetailsController < ApplicationController
   end
   
   def artikujt_per_kartele
-    puts params[:search]
+    #puts params[:search]
     @lista_artikujve = Item.tenjesis(@user.department_id).kerkimi_per_kartele(params[:search])
   end
   

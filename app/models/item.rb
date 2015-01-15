@@ -7,5 +7,5 @@ class Item < ActiveRecord::Base
   
     scope :tenjesis, -> (njesia) { where(department_id: njesia)}
     
-    scope :kerkimi_per_kartele, -> (search) { where("emertimi like ?", "#{search}%")}  
+    scope :kerkimi_per_kartele, -> (search) { where("emertimi like ?", "%" + "#{search}" + "%")}  
 end
