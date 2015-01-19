@@ -8,7 +8,15 @@ class WarehouseDetailsController < ApplicationController
     @user = current_user
     #logger.debug "TUNG ... numri i komenteve per ket kontrate osht: #{@contract.contract_comments.first.inspect}"
     
-    @warehouse_details = @warehouse_document.warehouse_details
+    if @warehouse_document.pranimdalje == false  
+      puts "dokumenti osht pranim"
+      @warehouse_details = @warehouse_document.warehouse_details
+    else
+      puts "dokumenti osht dalje"
+      @warehouse_details = @warehouse_document.warehouse_details
+      render 'warehouse_details/daljedet'
+      
+    end
   end
   
   def daljedet

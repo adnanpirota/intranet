@@ -1,5 +1,6 @@
 class ContractCommentsController < ApplicationController
   before_action :kontrata_aktale
+  before_action :staf_i_prokutimit
   #before_action :shfaqi_komentet, only: [:index, :create]
   respond_to :html, :js
   
@@ -52,6 +53,12 @@ class ContractCommentsController < ApplicationController
   
     def contract_comment_params
       params.require(:contract_comment).permit(:komenti, :ndikues, :punetori)
+    end
+    
+    def staf_i_prokutimit
+      @user = current_user
+      puts @user.inspect
+      redirect_to(root_path) unless @user.department_id == 4 || @user.admin == true
     end
   
 end
