@@ -18,11 +18,11 @@ class ItemsController < ApplicationController
     
     #@items = Item.search(params[:search])
       if params[:search]
-        puts "paska search #{:search}"
+        #puts "paska search #{:search}"
         @items = Item.tenjesis(@user.department_id).starts_with(params[:search])
       else
-        puts  "nuk paska search"
-        @items = Item.tenjesis(@user.department_id)
+        #puts  "nuk paska search"
+        @items = Item.tenjesis(@user.department_id).order("id DESC").limit(10)
       end
   end
   
