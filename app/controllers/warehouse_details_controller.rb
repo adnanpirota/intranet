@@ -93,7 +93,11 @@ class WarehouseDetailsController < ApplicationController
   
   def artikujt_per_kartele
     #puts params[:search]
-    @lista_artikujve = Item.tenjesis(@user.department_id).kerkimi_per_kartele(params[:search])
+    if params[:search]
+      @lista_artikujve = Item.tenjesis(@user.department_id).kerkimi_per_kartele(params[:search])
+    else
+      @lista_artikujve = Item.tenjesis(@user.department_id).order("id DESC").limit(10)
+    end
   end
   
   def kartela_artikullit
